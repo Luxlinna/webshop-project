@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  backend:
+    build:
+      context: ./webshop
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./webshop/data:/app/data    # if your backend writes to JSON files
+    # No database needed
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./webshop-frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+

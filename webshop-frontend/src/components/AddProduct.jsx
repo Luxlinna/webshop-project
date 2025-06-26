@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
 
 function AddProduct({ onProductSaved, productToEdit }) {
   const isEditMode = Boolean(productToEdit);
@@ -15,6 +17,9 @@ function AddProduct({ onProductSaved, productToEdit }) {
   const [imageFile, setImageFile] = useState(null);
   const [message, setMessage] = useState('');
   const fileInputRef = useRef(null);
+  
+  const apiUrl = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
     if (isEditMode && productToEdit) {
@@ -43,6 +48,17 @@ function AddProduct({ onProductSaved, productToEdit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('Submitting...');
+  
+    // ================ Add new product code ================
+    try {
+      const response = await saveProduct(product, imageFile, isEditMode);
+      setMessage(isEditMode ? '✅ Product updated!' : '✅ Product added!');
+      if (onProductSaved) onProductSaved(response.data);
+      window.location.reload();
+    } catch (err) {
+      setMessage('❌ Error: ' + (err.response?.data || err.message));
+    }
+    // ===============
 
     try {
       const formData = new FormData();
@@ -57,12 +73,13 @@ function AddProduct({ onProductSaved, productToEdit }) {
       let response;
 
       if (isEditMode) {
-        response = await fetch(`http://localhost:8080/products/${product.id}`, {
+        response = await fetch(`${apiUrl}/products/${product.id}`, {
+        // response = await fetch(`http://localhost:8080/products/${product.id}`, {
           method: 'PUT',
           body: formData,
         });
       } else {
-        response = await fetch('http://localhost:8080/products', {
+        response = await fetch(`${import.meta.env.VITE_API_URL}/products`, {
           method: 'POST',
           body: formData,
         });
@@ -75,11 +92,14 @@ function AddProduct({ onProductSaved, productToEdit }) {
 
       const savedProduct = await response.json();
       setMessage(isEditMode ? '✅ Product updated!' : '✅ Product added!');
+      toast.success('✅ Order placed successfully!');
 
       if (onProductSaved) onProductSaved(savedProduct);
 
       // ✅ This line to force page refresh:
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();    // ✅ Refresh page after successful order
+      }, 2500); // Wait 2.5 seconds
 
       // Reset form after success
       setProduct({ id: null, name: '', price: '', quantity: '', description: '', imageUrl: '' });

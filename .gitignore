@@ -37,5 +37,4 @@ build/
 ### Mac OS ###
 .DS_Store
 
-webshop/firebase.txt
-webshop/src/main/resources/webshop-7f7bc-firebase-adminsdk-fbsvc-5ad0542250.json
+

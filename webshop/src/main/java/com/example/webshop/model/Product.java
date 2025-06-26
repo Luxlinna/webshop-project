@@ -82,59 +82,5 @@ public class Product {
         this.stock = stock;
     }
 
-    // Lombok's @Data adds getQuantity() and setQuantity()
 }
 
-
-
-
-
-
-
-
-
-// package com.example.webshop.model;
-
-// import lombok.AllArgsConstructor;
-// import lombok.Data;
-// import java.math.BigDecimal;
-
-// @NoArgsConstructor 
-// @Data
-// @AllArgsConstructor
-// public class Product {
-//     private Long id;
-//     private String name;
-//     private String description;
-//     private Double price;
-//     private String imageUrl;
-//     private int stock;
-// }
-
-
-
-
-
-
-
-
-
-// package com.example.webshop.model;
-
-// import lombok.Data;
-// import lombok.AllArgsConstructor;
-// import lombok.NoArgsConstructor;
-
-// import java.math.BigDecimal;
-
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// public class Product {
-//     private Long id;
-//     private String name;
-//     private String description;
-//     private BigDecimal price;
-//     private String imageUrl;
-//     private int stock;
-// }

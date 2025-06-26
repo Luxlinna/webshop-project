@@ -18,34 +18,3 @@ public class GlobalExceptionHandler {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-// package com.example.webshop.exception;
-
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.*;
-
-// import java.util.Map;
-
-// @RestControllerAdvice
-
-// public class GlobalExceptionHandler {
-
-//     @ExceptionHandler(ProductNotFoundException.class)
-//     public ResponseEntity<?> handleProductNotFound(ProductNotFoundException ex) {
-//         return ResponseEntity.status(404).body(Map.of("error", ex.getMessage()));
-//     }
-
-//     @ExceptionHandler(IllegalArgumentException.class)
-//     public ResponseEntity<?> handleBadRequest(IllegalArgumentException ex) {
-//         return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
-//     }
-// }

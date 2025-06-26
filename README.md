@@ -55,6 +55,7 @@ POST	/orders	Create an order
 # RUN FRONTEND
 cd webshop-frontend
 - npm install
+- npm install axios
 - npm install react-toastify // In case you don't have it installed
 - npm run dev
 

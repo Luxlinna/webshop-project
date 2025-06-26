@@ -30,10 +30,7 @@ public class OrderItemEntity {
     @Column(name = "price_at_purchase", nullable = false)
     private BigDecimal priceAtPurchase;
 
-    // Optional: link back to order entity
-    // @ManyToOne
-    // @JoinColumn(name = "order_id")
-    // private OrderEntity order;
+    
 }
 
 

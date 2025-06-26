@@ -4,6 +4,7 @@ import axios from "axios";
 import Cart from "./Cart";
 import OrderForm from "./OrderForm";
 
+
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -18,9 +19,12 @@ export default function ProductList() {
   const [imageFile, setImageFile] = useState(null);
   const [cart, setCart] = useState([]);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/products");
+      const res = await axios.get(`${apiUrl}/products`);
+      // const res = await axios.get("http://localhost:8080/products");
       setProducts(res.data);
     } catch {
       setError("Failed to fetch products.");
@@ -73,7 +77,8 @@ export default function ProductList() {
     if (imageFile) data.append("image", imageFile);
 
     try {
-      await axios.put(`http://localhost:8080/products/${editingId}`, data, {
+      await axios.put(`${apiUrl}/products/${editingId}`, data, {
+      // await axios.put(`http://localhost:8080/products/${editingId}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       await fetchProducts();
@@ -88,7 +93,8 @@ export default function ProductList() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
-      await axios.delete(`http://localhost:8080/products/${id}`);
+      await axios.delete(`${apiUrl}/products/${id}`);
+      // await axios.delete(`http://localhost:8080/products/${id}`);
       setProducts((prev) => prev.filter((p) => p.id !== id));
     } catch {
       alert("Failed to delete product.");
@@ -180,7 +186,7 @@ export default function ProductList() {
             ) : (
               <>               
                 <img
-                  src={`http://localhost:8080${
+                  src={`${import.meta.env.VITE_API_URL}${
                     product.imageUrl?.startsWith("/") 
                       ? product.imageUrl 
                       : `/uploads/${product.imageUrl}`
