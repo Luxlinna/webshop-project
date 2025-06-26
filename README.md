@@ -14,7 +14,7 @@ This is a full-stack webshop application built with:
 ## 📁 Project Structure
 
 
-webshop/
+webshop-project/
 ├── webshop/ → Spring Boot backend
 ├── webshop-frontend/ → React frontend
 ├── docker-compose.yml → To run both apps together
@@ -26,8 +26,8 @@ webshop/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Luxlinna/webshop.git
-cd webshop
+git clone https://github.com/Luxlinna/webshop-project.git
+cd webshop-project
 
 
 
