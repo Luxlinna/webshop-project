@@ -58,7 +58,7 @@ cd webshop-frontend
 - npm install react-toastify // In case you don't have it installed
 - npm run dev
 
-App will run at: http://localhost:3000
+App will run at: http://localhost:5173
 
 
 # Axios is pre-configured to connect to backend
