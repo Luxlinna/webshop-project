@@ -1,5 +1,7 @@
 Awesome! Here's everything you asked for:
 
+Project clone : https://github.com/Luxlinna/webshop-project.git
+
 ---
 
 ## ✅ 1. Final `README.md` (Ready to Commit)
