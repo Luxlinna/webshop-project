@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "customer": {
+      "name": "Alice",
+      "email": "alice@example.com",
+      "address": "123 Main St"
+    },
+    "items": [
+      {
+        "productId": 101,
+        "name": "Product A",
+        "price": 20.0,
+        "quantity": 2
+      },
+      {
+        "productId": 102,
+        "name": "Product B",
+        "price": 15.0,
+        "quantity": 1
+      }
+    ],
+    "createdAt": "2025-07-10T12:00:00Z"
+  }
+]

@@ -1,0 +1,181 @@
+# 🛒 Webshop Full Stack Application
+==========================
+### Overview
+- Code build in VSCode
+
+This is a full-stack webshop application built with:
+- **Spring Boot (Java 17)** as the backend
+- **React Vite (JavaScript)** as the frontend
+- **Maven** for build management
+- **Docker** for containerization
+
+---
+
+## 📁 Project Structure
+
+
+webshop-project/
+├── webshop/ → Spring Boot backend
+├── webshop-frontend/ → React frontend
+├── docker-compose.yml → To run both apps together
+└── README.md
+
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/webshop-project.git
+cd webshop-project
+
+
+
+========================
+
+# RUN BACKEND:
+cd webshop
+mvn spring-boot:run
+
+App will run at: http://localhost:8080
+
+
+API End points:
+API Endpoints
+Method	Endpoint	Description
+GET	/products	Get all products
+POST	/products	Create a product
+GET	/orders	Get all orders
+POST	/orders	Create an order
+
+
+
+
+
+# RUN FRONTEND
+cd webshop-frontend
+- npm install
+- npm install react-toastify // In case you don't have it installed
+- npm run dev
+
+App will run at: http://localhost:3000
+
+
+# Axios is pre-configured to connect to backend
+src/services/api.js
+
+baseURL: 'http://localhost:8080'
+
+
+# Docker Support
+docker-compose up --build
+Run full app with Docker Compose
+
+React: http://localhost:5173
+
+Spring Boot: http://localhost:8080
+
+
+
+############
+
+Sure! Here's a clear and concise `README.md` template based on your project info:
+
+```markdown
+# Webshop Project
+
+This project is a webshop application split into two main parts:
+
+- **Backend:** Java Spring Boot application
+- **Frontend:** Vite.js application
+
+---
+
+## Project Structure
+
+```
+
+webshop-project/
+├── webshop/             # Backend (Java Spring Boot)
+└── webshop-frontend/    # Frontend (Vite.js)
+
+````
+
+---
+
+## Technologies Used
+
+- **Backend:** Java, Maven, Spring Boot
+- **Frontend:** Vite.js, JavaScript/TypeScript (depending on your setup)
+- **Development Environment:** Visual Studio Code (VSCode)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Java 11+ (or the version your Spring Boot project requires)
+- Maven
+- Node.js and npm (for frontend)
+- VSCode (recommended)
+
+---
+
+### Running the Backend
+
+1. Open a terminal and navigate to the backend directory:
+
+```bash
+cd webshop-project/webshop
+````
+
+2. Run the Spring Boot application using Maven:
+
+```bash
+mvn spring-boot:run
+```
+
+The backend service will start, typically on `http://localhost:8080`.
+
+---
+
+### Running the Frontend
+
+1. Open a separate terminal and navigate to the frontend directory:
+
+```bash
+cd webshop-project/webshop-frontend
+```
+
+2. Install dependencies (if not already installed):
+
+```bash
+npm install
+```
+
+3. Start the frontend development server:
+
+```bash
+npm run dev
+```
+
+The frontend app will start, typically on `http://localhost:5173` (or the port Vite selects).
+
+---
+
+## Development Notes
+
+* This project is developed using Visual Studio Code.
+* You can open the root folder `webshop-project` in VSCode to manage both backend and frontend simultaneously.
+* Use VSCode terminals or separate terminal windows/tabs for running backend and frontend concurrently.
+
+---
+
+## License
+
+Add your license information here.
+
+---
+
+#####
