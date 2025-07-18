@@ -1,181 +1,192 @@
-# 🛒 Webshop Full Stack Application
-==========================
-### Overview
-- Code build in VSCode
+Awesome! Here's everything you asked for:
 
-This is a full-stack webshop application built with:
-- **Spring Boot (Java 17)** as the backend
-- **React Vite (JavaScript)** as the frontend
-- **Maven** for build management
-- **Docker** for containerization
+---
+
+## ✅ 1. Final `README.md` (Ready to Commit)
+
+Save this as `README.md` in the root of `webshop-project`:
+
+```markdown
+# Webshop Project
+
+A full-stack webshop application with:
+
+- **Backend:** Java + Spring Boot (deployed on [Render](https://render.com))
+- **Frontend:** Vite.js (deployed on [Vercel](https://vercel.com))
+- **IDE:** Visual Studio Code
 
 ---
 
 ## 📁 Project Structure
 
-
-webshop-project/
-├── webshop/ → Spring Boot backend
-├── webshop-frontend/ → React frontend
-├── docker-compose.yml → To run both apps together
-└── README.md
-
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/webshop-project.git
-cd webshop-project
-
-
-
-========================
-
-# RUN BACKEND:
-cd webshop
-mvn spring-boot:run
-
-App will run at: http://localhost:8080
-
-
-API End points:
-API Endpoints
-Method	Endpoint	Description
-GET	/products	Get all products
-POST	/products	Create a product
-GET	/orders	Get all orders
-POST	/orders	Create an order
-
-
-
-
-
-# RUN FRONTEND
-cd webshop-frontend
-- npm install
-- npm install react-toastify // In case you don't have it installed
-- npm run dev
-
-App will run at: http://localhost:3000
-
-
-# Axios is pre-configured to connect to backend
-src/services/api.js
-
-baseURL: 'http://localhost:8080'
-
-
-# Docker Support
-docker-compose up --build
-Run full app with Docker Compose
-
-React: http://localhost:5173
-
-Spring Boot: http://localhost:8080
-
-
-
-############
-
-Sure! Here's a clear and concise `README.md` template based on your project info:
-
-```markdown
-# Webshop Project
-
-This project is a webshop application split into two main parts:
-
-- **Backend:** Java Spring Boot application
-- **Frontend:** Vite.js application
-
----
-
-## Project Structure
-
 ```
 
 webshop-project/
-├── webshop/             # Backend (Java Spring Boot)
-└── webshop-frontend/    # Frontend (Vite.js)
+├── webshop/             # Java Spring Boot backend
+├── webshop-frontend/    # Vite.js frontend
+└── README.md            # You're reading it!
 
 ````
 
 ---
 
-## Technologies Used
-
-- **Backend:** Java, Maven, Spring Boot
-- **Frontend:** Vite.js, JavaScript/TypeScript (depending on your setup)
-- **Development Environment:** Visual Studio Code (VSCode)
-
----
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Java 11+ (or the version your Spring Boot project requires)
+- Java 17+
 - Maven
-- Node.js and npm (for frontend)
+- Node.js + npm
+- Git
 - VSCode (recommended)
 
 ---
 
-### Running the Backend
+## 🧠 Environment Setup
 
-1. Open a terminal and navigate to the backend directory:
+### Backend (Spring Boot)
 
-```bash
-cd webshop-project/webshop
+1. Navigate to backend:
+
+    ```bash
+    cd webshop
+    ```
+
+2. Build the project:
+
+    ```bash
+    mvn clean package
+    ```
+
+3. Run the app:
+
+    ```bash
+    java -jar target/webshop.jar
+    ```
+
+4. The backend runs at: `http://localhost:8080`
+
+To deploy, use [Render](https://render.com).
+
+---
+
+### Frontend (Vite)
+
+1. Navigate to frontend:
+
+    ```bash
+    cd webshop-frontend
+    ```
+
+2. Create `.env` file:
+
+    ```bash
+    echo "VITE_API_URL=https://your-backend-url.onrender.com" > .env
+    ```
+
+3. Install and run:
+
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+4. The frontend runs at: `http://localhost:3000`
+
+To deploy, use [Vercel](https://vercel.com).
+
+---
+
+## 🌐 Deployment URLs
+
+| Service   | Platform | URL Example |
+|-----------|----------|-------------|
+| Backend   | Render   | `https://webshop-backend.onrender.com` |
+| Frontend  | Vercel   | `https://webshop-frontend.vercel.app` |
+
+---
+
+## 🔐 CORS Setup (Spring Boot)
+
+```java
+@Configuration
+public class WebConfig {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return registry -> registry.addMapping("/**")
+            .allowedOrigins("https://your-frontend-url.vercel.app")
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+    }
+}
 ````
 
-2. Run the Spring Boot application using Maven:
+---
 
-```bash
-mvn spring-boot:run
-```
+## ⚙️ VSCode Tips
 
-The backend service will start, typically on `http://localhost:8080`.
+* Open the root `webshop-project` folder in VSCode
+* Use the built-in terminal for separate frontend/backend
+* Install extensions:
+
+  * Java Extension Pack
+  * ESLint
+  * Prettier
 
 ---
 
-### Running the Frontend
+## 📝 License
 
-1. Open a separate terminal and navigate to the frontend directory:
-
-```bash
-cd webshop-project/webshop-frontend
-```
-
-2. Install dependencies (if not already installed):
-
-```bash
-npm install
-```
-
-3. Start the frontend development server:
-
-```bash
-npm run dev
-```
-
-The frontend app will start, typically on `http://localhost:5173` (or the port Vite selects).
+MIT or your preferred license.
 
 ---
 
-## Development Notes
+## 🙋 Contact
 
-* This project is developed using Visual Studio Code.
-* You can open the root folder `webshop-project` in VSCode to manage both backend and frontend simultaneously.
-* Use VSCode terminals or separate terminal windows/tabs for running backend and frontend concurrently.
+Created by \[Your Name] – \[[your.email@example.com](mailto:your.email@example.com)]
 
----
-
-## License
-
-Add your license information here.
+````
 
 ---
 
-#####
+## ✅ 2. Commit `README.md`
+
+```bash
+git add README.md
+git commit -m "Add project README"
+git push
+````
+
+---
+
+## ✅ 3. Folder Structure Tips
+
+Make sure it looks like this:
+
+```
+webshop-project/
+├── .git/
+├── .gitignore
+├── README.md
+├── webshop/
+│   ├── src/
+│   ├── target/ (ignored)
+│   ├── pom.xml
+│   └── ...
+├── webshop-frontend/
+│   ├── src/
+│   ├── dist/ (ignored)
+│   ├── vite.config.js
+│   ├── package.json
+│   └── ...
+```
+
+---
+
+You're now fully set up with:
+
+* Clean Git repo ✅
+* Frontend + backend split ✅
+* Deploy to Vercel & Render ✅
+* Final README ✅
+
+
